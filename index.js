@@ -1,11 +1,14 @@
 const express = require('express');
 
+require("dotenv").config();
+
 const server = express();
 
+// server.use(express.json());
 
-server.get('/', (req, res) => {
+server.get('/',function (req, res) {
     const message = process.env.MESSAGE || "hello from code";
-    res.status(200).json({ message, database: porcess.env.DB_NAME });
+    res.status(200).json({ message, database: process.env.DB_NAME });
 });
 
 const port = process.env.PORT || 5000;
